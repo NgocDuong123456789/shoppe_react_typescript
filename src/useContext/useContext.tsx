@@ -34,16 +34,6 @@ export const getInitaAppContext: () => Initial = () => {
   }
 }
 
-// const initial: Initial = {
-//   authorization: Boolean(getAccessToken()),
-//   setAuthorization: () => null,
-//   profile: getProfile(),
-//   setProfile: () => null,
-//   reset: () => null,
-//   setPurchase: () => null,
-//   purchase: []
-// }
-
 const initial = getInitaAppContext()
 
 export const AppContext = createContext<Initial>(initial)
@@ -57,7 +47,6 @@ export const Provider = ({ children, defaultValue = initial }: Props) => {
     setProfile(null)
   }
   return (
-    
     <AppContext.Provider value={{ authorization, setAuthorization, profile, setProfile, reset, purchase, setPurchase }}>
       {children}
     </AppContext.Provider>

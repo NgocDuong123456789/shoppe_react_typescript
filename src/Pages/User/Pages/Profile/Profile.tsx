@@ -19,9 +19,7 @@ const schemaProfile = schema.pick(['name', 'phone', 'address', 'avatar', 'date_o
 const Profile = () => {
   const { t } = useTranslation()
   const InputRef = useRef<HTMLInputElement>(null)
-
   const [file, setFile] = useState<File | null>(null)
-
   const imagePrev = useMemo(() => {
     return file && URL.createObjectURL(file)
   }, [file])
@@ -44,7 +42,6 @@ const Profile = () => {
     resolver: yupResolver(schemaProfile)
   })
   const avatar = watch('avatar')
-
   const { data: dataMe, refetch } = useQuery({
     queryKey: ['me'],
     queryFn: () => meApi.getApiMe()
@@ -69,7 +66,7 @@ const Profile = () => {
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] as File
-    console.log(file)
+   
     if (file && (file.size > 1024 * 1024 || !file.type.includes('image'))) {
       toast.error('ảnh phải nhỏ hơn 1MB')
     } else {

@@ -14,6 +14,7 @@ import {
 } from '../Utils/localstorage'
 import { UNAUTHORIZEDError, UNAUTHORIZEDERROR } from '../Utils/errorApi'
 import { Generality } from '../../Types/Generality.type'
+
 let accessToken = getAccessToken()
 let refreshToken = getRefreshToken()
 let refreshPromise: Promise<string> | null = null
@@ -23,8 +24,6 @@ const http = axios.create({
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json'
-    // 'expire-access-token': 10,
-    // 'expire-refresh-token': 60 * 60
   }
 })
 const handleRefreshToken = async () => {
@@ -78,14 +77,12 @@ http.interceptors.response.use(
     return response
   },
   (error: AxiosError<{ message: string; name: string }>) => {
+   
     if (error?.response?.status !== 422 && error?.response?.status !== 401) {
       //  toast.error( error.message)
     }
     if (UNAUTHORIZEDError(error)) {
-      if (
-        UNAUTHORIZEDERROR<Generality<{ message: string; name: string }>>(error) &&
-        error?.config?.url !== REFRESH_TOKEN_URL
-      ) {
+      if (UNAUTHORIZEDERROR<Generality<{ message: string; name: string }>>(error) && error?.config?.url !== REFRESH_TOKEN_URL) {
         refreshPromise = refreshPromise
           ? refreshPromise
           : handleRefreshToken().finally(() => {
@@ -93,6 +90,7 @@ http.interceptors.response.use(
                 refreshPromise = null
               }, 10000)
             })
+
         return refreshPromise.then((access_token) => {
           accessToken = access_token
           const config = error.config
@@ -102,7 +100,9 @@ http.interceptors.response.use(
           }
           // return http({ ...config, headers: { ...config?.headers, authorization: access_token } })
         })
-      } else {
+      } 
+      
+      else {
         removeLS()
         accessToken = ''
         refreshToken = ''

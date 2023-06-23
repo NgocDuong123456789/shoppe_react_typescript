@@ -1,5 +1,5 @@
-import { expect, it, describe } from 'vitest'
-import { StatusCodes } from 'http-status-codes'
+import { it, describe } from 'vitest'
+
 import http from '../http'
 describe('test API', () => {
   it('test login', () => {

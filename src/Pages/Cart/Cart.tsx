@@ -1,5 +1,5 @@
 import { useQuery, useMutation } from '@tanstack/react-query'
-import { useEffect, useState, useMemo, useContext } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 
 import produce from 'immer'
 import { Link, useLocation } from 'react-router-dom'
@@ -49,6 +49,7 @@ const Cart = () => {
       return sum + val.buy_count * val.price
     }, 0)
   }, [arrayChecked])
+
   const body = useMemo(
     () =>
       arrayChecked.map((purchase) => {
@@ -99,6 +100,7 @@ const Cart = () => {
       })
     )
   }
+
   const handleCAllChecked = () => {
     setPurchase((prev) =>
       prev.map((purchase) => ({
@@ -124,12 +126,11 @@ const Cart = () => {
       buyProductMuTaTion.mutate(body, {
         onSuccess: () => {
           refetch()
-          Toast(true,"Buy Product Successfully !")
-          // toast.success('Buy Product Successfully !')
+          Toast(true, 'Buy Product Successfully !')
         }
       })
     } else {
-      Toast(false,'Chưa có sản phẩm nào được chọn !')
+      Toast(false, 'Chưa có sản phẩm nào được chọn !')
     }
   }
   const handleTypeQuantity = (index: number, value: number | string) => {
@@ -150,7 +151,7 @@ const Cart = () => {
         }
       }
     )
-    console.log(purchaseId, value)
+   
   }
 
   return (

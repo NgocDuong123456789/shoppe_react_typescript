@@ -64,7 +64,7 @@ export const Pagination = ({ QueryParam, pagination }: PropsPagination) => {
             }).toString()
           }}
           className={classNames('mx-7 lg:text-xl  hover:text-orange', {
-            'text-white  bg-orange lg:px-6 lg:py-2 px-4 py-1': pageIndex === pageNumber,
+            'text-[white]  bg-orange lg:px-6 lg:py-2 px-4 py-1 hover:text-[white]': pageIndex === pageNumber,
             'text-black  ': pageIndex !== pageNumber
           })}
         >
@@ -92,7 +92,7 @@ export const Pagination = ({ QueryParam, pagination }: PropsPagination) => {
           viewBox='0 0 24 24'
           strokeWidth={1.5}
           stroke='currentColor'
-          className='lg:w-7 lg:h-7 w-5 h-5 lg:mx-7 '
+          className={`lg:w-7 lg:h-7 w-5 h-5 lg:mx-7 ${pageIndex === 1 ? 'cursor-not-allowed' : 'cursor-pointer'} `}
         >
           <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5L8.25 12l7.5-7.5' />
         </svg>
@@ -114,7 +114,9 @@ export const Pagination = ({ QueryParam, pagination }: PropsPagination) => {
           viewBox='0 0 24 24'
           strokeWidth={1.5}
           stroke='currentColor'
-          className='lg:w-7 lg:h-7 w-5 h-5 lg:mx-7'
+          className={`lg:w-7 lg:h-7 w-5 h-5 lg:mx-7  ${
+            pageIndex === pagination?.page_size ? 'cursor-not-allowed' : 'cursor-pointer'
+          }`}
         >
           <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 4.5l7.5 7.5-7.5 7.5' />
         </svg>

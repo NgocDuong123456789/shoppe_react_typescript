@@ -6,6 +6,7 @@ import { Generality } from '../../Types/Generality.type'
 export function AxiosErrorApi<T>(error: unknown): error is AxiosError<T> {
   return axios.isAxiosError(error)
 }
+
 export function UNPROCESSABLE_ENTITYError<T>(error: unknown): error is AxiosError<T> {
   return AxiosErrorApi(error) && error?.response?.status === StatusCodes.UNPROCESSABLE_ENTITY
 }
@@ -13,6 +14,7 @@ export function UNPROCESSABLE_ENTITYError<T>(error: unknown): error is AxiosErro
 export function UNAUTHORIZEDError<T>(error: unknown): error is AxiosError<T> {
   return AxiosErrorApi(error) && error?.response?.status === StatusCodes.UNAUTHORIZED
 }
+
 export function NOT_FOUNDError<T>(error:unknown):error is AxiosError<T>{
   return AxiosErrorApi(error) && error?.response?.status === StatusCodes.NOT_FOUND
 }

@@ -62,7 +62,6 @@ export const routesElement = () => {
           element: (
             <MainLayout>
               <Suspense fallback={<div>Loading...</div>}>
-                {' '}
                 <LayoutUser />
               </Suspense>
             </MainLayout>

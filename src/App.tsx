@@ -8,7 +8,6 @@ import { AppContext } from './useContext/useContext'
 import { LocalStorageEventTarget } from './Components/Utils/localstorage'
 import { HelmetProvider } from 'react-helmet-async'
 
-
 const App = () => {
   const { reset } = useContext(AppContext)
   // trong trường hợp access_token hết hạn thì xóa hết những gì lưu trên local
