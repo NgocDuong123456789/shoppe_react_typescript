@@ -72,6 +72,7 @@ export const Header = () => {
       }).toString()
     })
     reset()
+    
   })
   const { data } = useQuery({
     queryKey: ['me'],

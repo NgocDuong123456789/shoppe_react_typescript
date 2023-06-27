@@ -6,7 +6,6 @@ import { useContext } from 'react'
 // eslint-disable-next-line react-hooks/rules-of-hooks
 
 import { path } from '../src/Components/Contants/path'
-import NotFound from './Pages/NotFound/NotFound'
 import { AppContext } from './useContext/useContext'
 import MainLayout from './Layouts/MainLayout/MainLayout'
 
@@ -19,6 +18,7 @@ const ProductList = lazy(() => import('./Pages/Products/ProductList'))
 const LayoutUser = lazy(() => import('./Pages/User/Layouts/LayoutUser'))
 const ChangePassword = lazy(() => import('./Pages/User/Pages/ChangePassword/ChangePassword'))
 const PurchaseOrder = lazy(() => import('./Pages/User/Pages/PurchaseOrder/PurchaseOrder'))
+const NotFound = lazy(() => import('./Pages/NotFound/NotFound'))
 
 export const routesElement = () => {
   const ProtectionRouter = () => {
@@ -138,7 +138,9 @@ export const routesElement = () => {
       path: '*',
       element: (
         <MainLayout>
-          <NotFound />
+          <Suspense fallback={<div>Loading...</div>}>
+            <NotFound />
+          </Suspense>
         </MainLayout>
       )
     }

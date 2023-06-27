@@ -19,7 +19,7 @@ export const StartProduct = () => {
             ...searchQueryParam,
             rating_filter: String(rating)
           },
-          ['sort_by']
+          ['sort_by','name']
         )
       ).toString()
     })

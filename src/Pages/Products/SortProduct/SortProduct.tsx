@@ -34,7 +34,7 @@ const {t} = useTranslation()
             ...searchQueryParam,
             sort_by: sortBy
           },
-          ['order']
+          ['order','name']
         )
       ).toString()
     })

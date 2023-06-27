@@ -37,11 +37,16 @@ export const AsideProduct = () => {
     const { price_max, price_min } = data
     navigate({
       pathname: '/',
-      search: createSearchParams({
-        ...useQueryParam,
-        price_max: price_max as string,
-        price_min: price_min as string
-      }).toString()
+      search: createSearchParams(
+        omit(
+          {
+            ...useQueryParam,
+            price_max: price_max as string,
+            price_min: price_min as string
+          },
+          ['name']
+        )
+      ).toString()
     })
     reset()
   })
@@ -150,7 +155,6 @@ export const AsideProduct = () => {
                 })}
               >
                 {t(`category.${category.name}`)}
-                
               </Link>
             </button>
           )
