@@ -1,7 +1,7 @@
-import { useQueryParams } from './useQueryParams'
 import omitBy from 'lodash/omitBy'
 import isUndefined from 'lodash/isUndefined'
 
+import { useQueryParams } from './useQueryParams'
 import { QueryConfigs } from '../Types/Generality.type'
 
 export const QueryParams = () => {
@@ -11,16 +11,16 @@ export const QueryParams = () => {
       page: queryParam?.page ?? '1',
       limit: queryParam?.limit ?? '15',
       order: queryParam?.order,
-      sort_by: queryParam?.sort_by ?? 'sold' ,
+      sort_by: queryParam?.sort_by ?? 'sold',
       category: queryParam?.category,
       exclude: queryParam?.exclude,
       rating_filter: queryParam?.rating_filter,
       price_max: queryParam?.price_max,
       price_min: queryParam?.price_min,
-      name: queryParam?.name
+      name: queryParam?.name, 
+      // status: queryParam?.status ?? '-1'
     },
     isUndefined
   )
   return QueryParams
 }
-

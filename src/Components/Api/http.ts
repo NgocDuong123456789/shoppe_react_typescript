@@ -77,12 +77,14 @@ http.interceptors.response.use(
     return response
   },
   (error: AxiosError<{ message: string; name: string }>) => {
-   
     if (error?.response?.status !== 422 && error?.response?.status !== 401) {
       //  toast.error( error.message)
     }
     if (UNAUTHORIZEDError(error)) {
-      if (UNAUTHORIZEDERROR<Generality<{ message: string; name: string }>>(error) && error?.config?.url !== REFRESH_TOKEN_URL) {
+      if (
+        UNAUTHORIZEDERROR<Generality<{ message: string; name: string }>>(error) &&
+        error?.config?.url !== REFRESH_TOKEN_URL
+      ) {
         refreshPromise = refreshPromise
           ? refreshPromise
           : handleRefreshToken().finally(() => {
@@ -100,14 +102,10 @@ http.interceptors.response.use(
           }
           // return http({ ...config, headers: { ...config?.headers, authorization: access_token } })
         })
-      } 
-      
-      else {
+      } else {
         removeLS()
         accessToken = ''
         refreshToken = ''
-
-        //  toast.error(error?.response?.data.message as string)
       }
     }
 

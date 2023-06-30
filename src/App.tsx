@@ -1,4 +1,4 @@
-import { routesElement } from './useRouter'
+import { HelmetProvider } from 'react-helmet-async'
 import { ToastContainer } from 'react-toastify'
 import { useEffect, useContext } from 'react'
 import './App.css'
@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import { AppContext } from './useContext/useContext'
 import { LocalStorageEventTarget } from './Components/Utils/localstorage'
-import { HelmetProvider } from 'react-helmet-async'
+import { routesElement } from './useRouter'
 
 const App = () => {
   const { reset } = useContext(AppContext)
@@ -19,12 +19,8 @@ const App = () => {
   return (
     <div className=" w-full ">
        <HelmetProvider>
-       
-        
           {routesElement()}
          <ToastContainer />
-          
-       
       </HelmetProvider>
      
     </div>

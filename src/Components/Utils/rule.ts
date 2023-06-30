@@ -18,7 +18,7 @@ export const schema = yup.object({
     .required('không để trống trường này')
     .min(6, 'độ dài tối thiểu 6 ký tự')
     .max(160, 'không nhập quá 160 ký tự')
-    .oneOf([yup.ref('password')], 'mật khẩu nhập không đúng'),
+    .oneOf([yup.ref('password')], 'mật khẩu nhập lại không đúng'),
   name: yup.string().required('không để trống trường này').max(160, 'Trường name không được để trống'),
   avatar: yup.string().max(1000, 'avatar không quá 1000 ký tự'),
   phone: yup.string().required('không để trống trường này').max(20, 'Trường sđt không được để trống'),

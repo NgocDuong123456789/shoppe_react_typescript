@@ -1,16 +1,16 @@
 import omit from 'lodash/omit'
 import { useNavigate, createSearchParams } from 'react-router-dom'
 import classNames from 'classnames'
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next'
 
 import { QueryParams } from '../../../Hook/QueryParams'
 import { orderSort, sortBy } from '../../../Components/Contants/contant'
 
 export const SortProduct = () => {
-const {t} = useTranslation()
+  const { t } = useTranslation()
   const { view, sold = 'sold', price } = sortBy
   const searchQueryParam = QueryParams()
-  const {  order } = searchQueryParam
+  const { order } = searchQueryParam
 
   const navigate = useNavigate()
 
@@ -34,14 +34,13 @@ const {t} = useTranslation()
             ...searchQueryParam,
             sort_by: sortBy
           },
-          ['order','name']
+          ['order', 'name']
         )
       ).toString()
     })
   }
   return (
     <div className='items-center h-[60px] w-full bg-DFDFDF hidden lg:flex'>
-  
       <div className='mx-[15px]'>{t('homeSidebar.Sortby')}</div>
       <button
         className={classNames('py-[6px] px-[9px]  text-black mx-[10px] text-sm', {
@@ -75,8 +74,8 @@ const {t} = useTranslation()
         defaultValue={order || ''}
         onChange={(e) => handleClick(e.target.value)}
       >
-        <option  disabled  value=''>
-        {t('homeSidebar.Price')}
+        <option disabled value=''>
+          {t('homeSidebar.Price')}
         </option>
 
         <option value={orderSort.asc} className='outline-none cursor-pointer text-sm'>

@@ -1,5 +1,4 @@
-/* eslint-disable import/namespace */
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useRef, useEffect } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import classNames from 'classnames'
@@ -7,7 +6,6 @@ import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet-async'
 import { toast } from 'react-toastify'
 import DOMPurify from 'dompurify'
-import { useNavigate } from 'react-router-dom'
 import { convert } from 'html-to-text'
 
 import { productApi } from '../../../Components/Api/product.api'
@@ -32,8 +30,8 @@ const ProductDetail = () => {
   const handleBuy_Count = (value: number | string) => {
     SetQuantity(value)
   }
-  const queryPurchase = queryStatus()
 
+  const queryPurchase = queryStatus()
   const idURL = getIdFromNameId(useParams().id as string)
   const { data } = useQuery({
     queryKey: ['productDetail', idURL],
@@ -71,20 +69,28 @@ const ProductDetail = () => {
     const div = divRef.current as HTMLDivElement
     const image = imageRef.current as HTMLImageElement
 
+    // sử lý ô tròn di chuột quanh vị trí con trỏ chuột
     div.style.top = e.clientY + 'px'
     div.style.left = e.clientX + 'px'
+
+    // cho ảnh vào thẻ div
     div.style.backgroundImage = `url(${renderImage}`
+    // kích thước ảnh là 2000
     div.style.backgroundSize = '2000px'
     div.style.display = 'block'
 
+    // lấy kích cỡ của tấm ảnh
     const WeightImage = image.offsetWidth
     const HeightImage = image.clientHeight
+
     const pagex = e.pageX
     const pagey = e.pageY
     const X = image.offsetLeft
     const Y = image.offsetTop
+
     const x = ((pagex - X) / WeightImage) * 100 + '%'
     const y = ((pagey - Y) / HeightImage) * 100 + '%'
+
     div.style.backgroundPosition = `${x} ${y}`
   }
   useEffect(() => {
@@ -93,7 +99,7 @@ const ProductDetail = () => {
 
   const handleZoomLeave = () => {
     const div = divRef.current as HTMLDivElement
-    div.style.display = 'none'
+    div.style.cssText = 'display:none'
   }
   const handleAddToCart = () => {
     mutation.mutate(
@@ -115,10 +121,9 @@ const ProductDetail = () => {
   const handleBuyNow = async () => {
     const res = await mutation.mutateAsync({ product_id: idURL, buy_count: Number(quantity) })
     const purchase = res.data as any
-
     navigate(path.cart, {
       state: {
-        product_id: purchase?.data._id as any
+        product_id: purchase?.data._id as string | number
       }
     })
   }
@@ -138,7 +143,7 @@ const ProductDetail = () => {
       {isLoading ? (
         <div className='grid grid-cols-5 gap-4'>
           <Skeleton />
-          <Skeleton /> 
+          <Skeleton />
           <Skeleton />
           <Skeleton />
           <Skeleton />
@@ -235,9 +240,9 @@ const ProductDetail = () => {
 
               <QuantityProduct
                 max={productDetail?.quantity}
-                onType={handleBuy_Count}
-                onIncrease={handleBuy_Count}
-                onDecrease={handleBuy_Count}
+                onType={(value) => handleBuy_Count(value)}
+                onIncrease={(value) => handleBuy_Count(value)}
+                onDecrease={(value) => handleBuy_Count(value)}
                 className='outline-none border  border-FFCD95 w-[50px] h-7 lg:h-8 pl-[10px]'
                 value={quantity}
               />

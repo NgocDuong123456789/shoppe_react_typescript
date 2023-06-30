@@ -63,9 +63,9 @@ export const Pagination = ({ QueryParam, pagination }: PropsPagination) => {
               page: String(pageNumber)
             }).toString()
           }}
-          className={classNames('mx-7 lg:text-xl  hover:text-orange', {
+          className={classNames('mx-7 lg:text-xl', {
             'text-[white]  bg-orange lg:px-6 lg:py-2 px-4 py-1 hover:text-[white]': pageIndex === pageNumber,
-            'text-black  ': pageIndex !== pageNumber
+            'text-black  hover:text-orange': pageIndex !== pageNumber
           })}
         >
           {pageNumber}

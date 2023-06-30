@@ -1,12 +1,12 @@
-import React from 'react'
-interface Prop {
+
+interface ButtonPropType {
   children: React.ReactNode
   isLoading?: boolean
   disabled?: boolean
   className?: string
   type?: string
 }
-export const Button = ({ children, isLoading, disabled, className, type, ...rest }: Prop) => {
+export const Button = ({ children, isLoading, disabled, className, type, ...rest }: ButtonPropType) => {
   const newClassName = disabled ? className + 'cursor-not-allowed' : className
   return (
     <button className={newClassName} {...rest} type='submit'>

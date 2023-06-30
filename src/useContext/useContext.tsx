@@ -35,9 +35,7 @@ export const getInitaAppContext: () => Initial = () => {
 }
 
 const initial = getInitaAppContext()
-
 export const AppContext = createContext<Initial>(initial)
-
 export const Provider = ({ children, defaultValue = initial }: Props) => {
   const [authorization, setAuthorization] = useState<boolean>(defaultValue.authorization)
   const [profile, setProfile] = useState<User | null>(defaultValue.profile)

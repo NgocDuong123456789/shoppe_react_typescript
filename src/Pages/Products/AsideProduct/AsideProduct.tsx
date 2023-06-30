@@ -41,7 +41,7 @@ export const AsideProduct = () => {
         omit(
           {
             ...useQueryParam,
-            price_max: price_max as string,
+            price_max: price_max as string ,
             price_min: price_min as string
           },
           ['name']
@@ -128,7 +128,7 @@ export const AsideProduct = () => {
               key={category._id}
               onClick={() => handleCategories(category._id)}
             >
-              {' '}
+       
               {useQueryParam.category === category._id ? (
                 <svg
                   xmlns='http://www.w3.org/2000/svg'

@@ -17,7 +17,7 @@ import { LogoutApi } from '../Api/Auth'
 import { removeLS } from '../Utils/localstorage'
 import { QueryParams } from '../../Hook/QueryParams'
 import { purchasesApi } from '../Api/purchases.api'
-import { queryStatus } from '../queryStatus/queryStatus'
+ import { queryStatus } from '../queryStatus/queryStatus'
 import { getAvatar, NumberFormat } from '../../Components/Utils/utils'
 import { meApi } from '../Api/me'
 
@@ -38,7 +38,7 @@ export const Header = () => {
   }
   const language = languageAll[currentLanguage as keyof language]
 
-  const queryPurchase = queryStatus()
+   const queryPurchase = queryStatus()
   const ConfigQuery = QueryParams()
   const navigate = useNavigate()
 
@@ -52,6 +52,7 @@ export const Header = () => {
   const LogoutMution = useMutation({
     mutationFn: () => LogoutApi()
   })
+
   const handleLogout = () => {
     LogoutMution.mutate(undefined, {
       onSuccess: () => {
@@ -71,7 +72,7 @@ export const Header = () => {
         name: data.name
       }).toString()
     })
-    reset()
+     reset()
     
   })
   const { data } = useQuery({

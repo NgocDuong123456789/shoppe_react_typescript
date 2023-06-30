@@ -67,7 +67,11 @@ const Login = () => {
           <title>Đăng nhập</title>
           <meta name='Đăng nhập' content='đây là page đăng nhập' />
         </Helmet>
-        <img src="https://torog.vn/upload/image/1669190563439-%C4%91%C4%83ng%20k%C3%BD%20b%C3%A1n%20tr%C3%AAn%20shopee%20food.jpg" alt="ảnh trang chủ" className='w-full h-full object-cover' />
+        <img
+          src='https://torog.vn/upload/image/1669190563439-%C4%91%C4%83ng%20k%C3%BD%20b%C3%A1n%20tr%C3%AAn%20shopee%20food.jpg'
+          alt='ảnh trang chủ'
+          className='w-full h-full object-cover'
+        />
 
         <div className=' lg:right-[200px] lg:top-[50%] lg:translate-y-001 lg:absolute  mt-[20px]'>
           <form

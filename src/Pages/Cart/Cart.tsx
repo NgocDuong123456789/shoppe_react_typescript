@@ -1,6 +1,5 @@
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { useEffect, useState, useMemo } from 'react'
-
 import produce from 'immer'
 import { Link, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -70,6 +69,8 @@ const Cart = () => {
       })) || []
     )
   }, [purchaseInCart])
+
+  //
   useEffect(() => {
     history.replaceState(null, '')
   })
@@ -133,6 +134,7 @@ const Cart = () => {
       Toast(false, 'Chưa có sản phẩm nào được chọn !')
     }
   }
+
   const handleTypeQuantity = (index: number, value: number | string) => {
     setPurchase(
       produce((draft) => {
@@ -140,10 +142,11 @@ const Cart = () => {
       })
     )
   }
+
   const handleQuantity = (purchaseIndex: number, value: number) => {
     const purchaseId = purchase[purchaseIndex].product._id
     updatePurchaseMutation.mutate(
-      { product_id: purchaseId, buy_count: value },
+      { product_id: purchaseId, buy_count:value },
       {
         onSuccess: () => {
           refetch()
@@ -151,7 +154,6 @@ const Cart = () => {
         }
       }
     )
-   
   }
 
   return (
@@ -176,7 +178,7 @@ const Cart = () => {
           </div>
           {purchase?.map((purchase, index) => {
             return (
-              <div className=' grid grid-cols-12 gap-5 bg-white py-3 px-7   items-center' key={purchase._id}>
+              <div className=' grid grid-cols-12 gap-5 bg-white py-3 px-7 items-center' key={purchase._id}>
                 <div className='lg:col-span-6 flex items-center  col-span-12'>
                   <input
                     type='checkbox'
@@ -227,7 +229,7 @@ const Cart = () => {
             <div className='col-span-6 flex items-items justify-end'>
               <div className='flex items-center'>
                 <p className='hidden lg:block'>
-                  {t('Cart.Total')} ({purchase.length} {t('Cart.Item')}){' '}
+                  {t('Cart.Total')} ({arrayChecked.length} {t('Cart.Item')})
                 </p>
                 <p className='text-orange lg:text-3xl text-xl'>₫{NumberFormat(sumTotalProduct)}</p>
               </div>
@@ -243,7 +245,7 @@ const Cart = () => {
       ) : (
         <div className='w-full flex items-center text-center m-auto justify-center py-10'>
           <div>
-            {' '}
+           
             <img
               className='lg:w-18 object-cover  lg:h-18 w-13 h-13'
               src='https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/9bdd8040b334d31946f49e36beaf32db.png'
