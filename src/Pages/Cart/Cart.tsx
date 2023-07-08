@@ -12,7 +12,6 @@ import { queryStatus } from '../../Components/queryStatus/queryStatus'
 import { NumberFormat } from '../../Components/Utils/utils'
 import { QuantityProduct } from '../../Components/QuantityProduct/QuantityProduct'
 import { Button } from '../../Components/Button/Button'
-import { Toast } from '../../Components/Toast/Toast'
 
 interface ExtendedPurchase extends PropPurchase {
   disable: boolean
@@ -30,10 +29,12 @@ const Cart = () => {
     queryKey: ['dataPurchase', query],
     queryFn: () => purchasesApi.getToCart(query)
   })
+
   const purchaseInCart = data?.data.data
   const isAllChecked = useMemo(() => {
     return purchase?.every((purchase) => purchase.checked)
   }, [purchase])
+  console.log(isAllChecked)
 
   const arrayChecked = useMemo(() => {
     return purchase?.filter((purchase) => purchase.checked)
@@ -49,7 +50,7 @@ const Cart = () => {
     }, 0)
   }, [arrayChecked])
 
-  const body = useMemo(
+  const buyProduct = useMemo(
     () =>
       arrayChecked.map((purchase) => {
         return {
@@ -124,14 +125,15 @@ const Cart = () => {
 
   const handleBuyProduct = () => {
     if (arrayChecked.length > 0) {
-      buyProductMuTaTion.mutate(body, {
+      buyProductMuTaTion.mutate(buyProduct, {
         onSuccess: () => {
           refetch()
-          Toast(true, 'Buy Product Successfully !')
+
+          toast.success('mua hàng thành công')
         }
       })
     } else {
-      Toast(false, 'Chưa có sản phẩm nào được chọn !')
+      toast.error('chưa có sản phẩm nào được chọn !')
     }
   }
 
@@ -146,7 +148,7 @@ const Cart = () => {
   const handleQuantity = (purchaseIndex: number, value: number) => {
     const purchaseId = purchase[purchaseIndex].product._id
     updatePurchaseMutation.mutate(
-      { product_id: purchaseId, buy_count:value },
+      { product_id: purchaseId, buy_count: value },
       {
         onSuccess: () => {
           refetch()
@@ -245,7 +247,6 @@ const Cart = () => {
       ) : (
         <div className='w-full flex items-center text-center m-auto justify-center py-10'>
           <div>
-           
             <img
               className='lg:w-18 object-cover  lg:h-18 w-13 h-13'
               src='https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/9bdd8040b334d31946f49e36beaf32db.png'

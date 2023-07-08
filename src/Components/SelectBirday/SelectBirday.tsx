@@ -1,20 +1,17 @@
 import range from 'lodash/range'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 interface Props {
   onChange?: (value: Date) => void
   value?: Date
-
 }
 
-export  function SelectBirday({ value, onChange }: Props) {
-
+export function SelectBirday({ value, onChange }: Props) {
   const [date, setDate] = useState({
     date: value?.getDate() || 1,
     month: value?.getMonth() || 0,
     year: value?.getFullYear() || 1990
   })
-
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { value: valueFromSelect, name } = event.target
@@ -73,7 +70,6 @@ export  function SelectBirday({ value, onChange }: Props) {
             ))}
           </select>
         </div>
-        {/* <div className='mt-1 min-h-[1.25rem] text-sm text-red-600'>{errorMessage}</div> */}
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import http from './http'
 import { ProductList, product } from '../../Types/product.type'
-import { QueryConfigs} from '../../Types/Generality.type'
+import { QueryConfigs } from '../../Types/Generality.type'
 import { Generality } from '../../Types/Generality.type'
 
 interface Categories {

@@ -1,9 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useContext } from 'react'
 import { Navigate, Outlet, useRoutes } from 'react-router-dom'
-import { useContext } from 'react'
-
-// eslint-disable-next-line react-hooks/rules-of-hooks
 
 import { path } from '../src/Components/Contants/path'
 import { AppContext } from './useContext/useContext'
@@ -58,7 +55,7 @@ export const routesElement = () => {
           )
         },
         {
-          path: '',
+          path:'',
           element: (
             <MainLayout>
               <Suspense fallback={<div>Loading...</div>}>
@@ -66,7 +63,6 @@ export const routesElement = () => {
               </Suspense>
             </MainLayout>
           ),
-
           children: [
             {
               path: path.profile,

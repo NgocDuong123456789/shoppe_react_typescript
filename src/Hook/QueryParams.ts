@@ -9,7 +9,7 @@ export const QueryParams = () => {
   const QueryParams: QueryConfigs = omitBy(
     {
       page: queryParam?.page ?? '1',
-      limit: queryParam?.limit ?? '15',
+      limit: queryParam?.limit ?? '2',
       order: queryParam?.order,
       sort_by: queryParam?.sort_by ?? 'sold',
       category: queryParam?.category,
@@ -17,8 +17,7 @@ export const QueryParams = () => {
       rating_filter: queryParam?.rating_filter,
       price_max: queryParam?.price_max,
       price_min: queryParam?.price_min,
-      name: queryParam?.name, 
-      // status: queryParam?.status ?? '-1'
+      name: queryParam?.name
     },
     isUndefined
   )

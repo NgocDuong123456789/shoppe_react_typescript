@@ -76,7 +76,7 @@ const ProductDetail = () => {
     // cho ảnh vào thẻ div
     div.style.backgroundImage = `url(${renderImage}`
     // kích thước ảnh là 2000
-    div.style.backgroundSize = '2000px'
+    div.style.backgroundSize = '3000px'
     div.style.display = 'block'
 
     // lấy kích cỡ của tấm ảnh
@@ -161,7 +161,7 @@ const ProductDetail = () => {
                 onMouseLeave={handleZoomLeave}
               />
               <div
-                className='h-[150px] w-[150px] rounded-full border hidden border-orange fixed translate-y-001 translate-x-001 pointer-events-none'
+                className='h-[150px] w-[150px] rounded-full border-2 hidden border-orange   translate-y-001 translate-x-001  fixed  pointer-events-none'
                 ref={divRef}
               ></div>
             </div>

@@ -24,7 +24,7 @@ export const QuantityProduct = ({ className, max, value, onType, onIncrease, onD
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const numberValue = e.target.value
-    if (/^\d*$/.test(numberValue) || numberValue === ' ') {
+    if (/^\d*$/.test(numberValue) || numberValue === '') {
       onType && onType(e.target.value)
     }
   }

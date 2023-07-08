@@ -9,7 +9,7 @@ export const Toast = (check:boolean ,name:string) => {
     return toast.error(name, {
       style: {
         color: '#fff',
-        backgroundColor: 'red',
+        backgroundColor: 'while',
         fontWeight: 'bold',
         textAlign: 'center',
         textTransform: 'uppercase',

@@ -17,7 +17,7 @@ import { LogoutApi } from '../Api/Auth'
 import { removeLS } from '../Utils/localstorage'
 import { QueryParams } from '../../Hook/QueryParams'
 import { purchasesApi } from '../Api/purchases.api'
- import { queryStatus } from '../queryStatus/queryStatus'
+import { queryStatus } from '../queryStatus/queryStatus'
 import { getAvatar, NumberFormat } from '../../Components/Utils/utils'
 import { meApi } from '../Api/me'
 
@@ -38,7 +38,7 @@ export const Header = () => {
   }
   const language = languageAll[currentLanguage as keyof language]
 
-   const queryPurchase = queryStatus()
+  const queryPurchase = queryStatus()
   const ConfigQuery = QueryParams()
   const navigate = useNavigate()
 
@@ -72,8 +72,7 @@ export const Header = () => {
         name: data.name
       }).toString()
     })
-     reset()
-    
+    reset()
   })
   const { data } = useQuery({
     queryKey: ['me'],
@@ -168,7 +167,6 @@ export const Header = () => {
         </header>
       ) : (
         <header className='bg-orange lg:h-[140px]  h-[50px]  text-white ls:fixed ls:top-[0px] w-full z-20'>
-          
           <div className='flex justify-between w-full lg:px-10 px-[50px]'>
             <div className=' items-center  lg:flex hidden'>
               <Link to='/' className='hover:text-chatbot6'>
@@ -431,8 +429,6 @@ export const Header = () => {
                     >
                       <path strokeLinecap='round' strokeLinejoin='round' d='M6 18L18 6M6 6l12 12' />
                     </svg>
-
-                 
 
                     <p className='px-[20px] py-[10px] hover:text-orange ls:text-black cursor-pointer hover:bg-[#f5f5f5] w-full flex items-center m-auto justify-center ls:py-4  ls:border-b ls:border-orange'>
                       <Link to={path.profile}>{t('homeSidebar.MyCount')}</Link>

@@ -24,6 +24,7 @@ export const getPathProductDetail = (name: string, id: string) => {
   return removeSpecialCharacters(name).replace(/\s/g, '-') + '-i,' + id
 }
 
+
 export const getIdFromNameId = (nameId: string) => {
   const arr = nameId.split('-i,')
   return arr[arr.length - 1]

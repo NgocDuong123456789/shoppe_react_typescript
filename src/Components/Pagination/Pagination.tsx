@@ -2,8 +2,7 @@ import { createSearchParams, Link } from 'react-router-dom'
 import classNames from 'classnames'
 import range from 'lodash/range'
 
-import { QueryConfigs } from '../../Types/Generality.type'
-import { Paginations } from '../../Types/Generality.type'
+import { QueryConfigs, Paginations } from '../../Types/Generality.type'
 import { QueryParams } from '../../Hook/QueryParams'
 
 interface PropsPagination {
@@ -36,6 +35,7 @@ export const Pagination = ({ QueryParam, pagination }: PropsPagination) => {
 
     return range(pagination?.page_size).map((page) => {
       const pageNumber = page + 1
+
       if (
         pageIndex <= RANGE * 2 + 1 &&
         pageNumber > pageIndex + RANGE &&
@@ -84,7 +84,6 @@ export const Pagination = ({ QueryParam, pagination }: PropsPagination) => {
             page: String(pageIndex > 1 ? pageIndex - 1 : 1)
           }).toString()
         }}
-        className=''
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'

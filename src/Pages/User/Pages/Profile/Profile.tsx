@@ -20,6 +20,7 @@ const Profile = () => {
   const { t } = useTranslation()
   const InputRef = useRef<HTMLInputElement>(null)
   const [file, setFile] = useState<File | null>(null)
+
   const imagePrev = useMemo(() => {
     return file && URL.createObjectURL(file)
   }, [file])
@@ -42,6 +43,7 @@ const Profile = () => {
     resolver: yupResolver(schemaProfile)
   })
   const avatar = watch('avatar')
+  console.log(avatar)
   const { data: dataMe, refetch } = useQuery({
     queryKey: ['me'],
     queryFn: () => meApi.getApiMe()
@@ -66,16 +68,18 @@ const Profile = () => {
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] as File
-   
+
     if (file && (file.size > 1024 * 1024 || !file.type.includes('image'))) {
       toast.error('ảnh phải nhỏ hơn 1MB')
     } else {
       setFile(file)
     }
   }
+
   const uploadProfileMutation = useMutation({
     mutationFn: (body: PropProfile) => meApi.updateMe(body)
   })
+
   const uploadAvavata = useMutation({
     mutationFn: (body: FormData) => meApi.uploadAvata(body)
   })
@@ -179,7 +183,7 @@ const Profile = () => {
               hidden
               ref={InputRef}
               onChange={handleOnChange}
-              onClick={(e) => (e.target as any).value === null}
+              // onClick={(e) => (e.target as any).value === null}
             />
             <div className='w-full lg:my-3  my-5 items-center flex justify-center'>
               <button type='button' onClick={handleSelectImage} className='bg-orange text-white py-2 px-5'>

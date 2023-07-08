@@ -8,7 +8,6 @@ const LayoutUser = () => {
       <div className='lg:col-span-3 w-full '>
         <UserSidebar />
       </div>
-
       <div className='lg:col-span-9 '>
         <Outlet />
       </div>

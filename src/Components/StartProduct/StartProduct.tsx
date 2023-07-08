@@ -52,7 +52,7 @@ export const StartProduct = () => {
                           strokeMiterlimit='10'
                         ></polygon>
                       </svg>
-                     {indexStart < 5 - index && (
+                      {indexStart < 5 - index && (
                         <svg
                           enableBackground='new 0 0 15 15'
                           viewBox='0 0 15 15'
@@ -66,8 +66,8 @@ export const StartProduct = () => {
                             strokeLinejoin='round'
                             strokeMiterlimit='10'
                           ></polygon>
-                        </svg> 
-                      )} 
+                        </svg>
+                      )}
                     </div>
                   </button>
                 )

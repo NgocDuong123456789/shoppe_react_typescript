@@ -31,7 +31,8 @@ export const AsideProduct = () => {
       price_max: '',
       price_min: ''
     },
-    resolver: yupResolver(schemaInput)
+    resolver: yupResolver(schemaInput),
+    
   })
   const onSubmit = handleSubmit((data) => {
     const { price_max, price_min } = data
@@ -58,7 +59,7 @@ export const AsideProduct = () => {
 
   const categoriesData = data?.data.data
 
-  const handleCategories = (id: string) => {
+  const handleCategories = (id:string) => {
     navigate({
       pathname: '/',
       search: createSearchParams(
@@ -186,6 +187,7 @@ export const AsideProduct = () => {
             control={control}
             name='price_min'
             render={({ field: { value, ref, onChange } }) => (
+              
               <InputNumber
                 ref={ref}
                 className='h-[40px]  text-xs pl-[5px] outline-none w-[70px] mr-5'
@@ -200,7 +202,7 @@ export const AsideProduct = () => {
             name='price_max'
             render={({ field: { value, ref, onChange } }) => (
               <InputNumber
-                ref={ref}
+                 ref={ref}
                 className='h-[40px]  text-xs pl-[5px] outline-none w-[70px] mr-5'
                 placeholder='₫ Đến'
                 value={value as string}

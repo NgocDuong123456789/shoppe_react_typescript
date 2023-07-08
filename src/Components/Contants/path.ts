@@ -4,7 +4,7 @@ export const path = {
   register: '/register',
   productDetail: '/productDetail/:id',
   cart: '/cart',
-  user: 'user',
+  // user: '/user',
   profile: '/user/profile',
   changePassword: '/user/changePassword',
   purchaseOrder: '/user/purchaseOrder'
