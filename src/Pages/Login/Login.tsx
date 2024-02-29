@@ -68,14 +68,14 @@ const Login = () => {
           <meta name='Đăng nhập' content='đây là page đăng nhập' />
         </Helmet>
         <img
-          src='https://torog.vn/upload/image/1669190563439-%C4%91%C4%83ng%20k%C3%BD%20b%C3%A1n%20tr%C3%AAn%20shopee%20food.jpg'
+          src='../../../src/assets/shoppe.webp'
           alt='ảnh trang chủ'
           className='w-full h-full object-cover'
         />
 
         <div className=' lg:right-[200px] lg:top-[50%] lg:translate-y-001 lg:absolute  mt-[20px]'>
           <form
-            className='bg-white w-full  lg:w-[400px] px-[24px] pb-[36px] lg:pt-[36px]'
+            className='bg-white w-full  lg:w-[400px] px-[24px] pb-[36px] lg:pt-[36px]  rounded-lg'
             onSubmit={handleSubmit(onSubmit)}
           >
             <h2 className='text-[25px] font-bold  w-full text-center'>Đăng Nhập</h2>
@@ -87,7 +87,7 @@ const Login = () => {
               nameSpace='Email'
               placeholder='Email'
               type='email'
-              classNameInput='h-[40px] outline-0  border-colorInput border my-[10px]  pl-[8px] '
+              classNameInput='h-[40px] outline-0  border-colorInput border my-[5px]  pl-[8px] '
               messageError={errors.email?.message}
             />
             <Input
@@ -96,13 +96,13 @@ const Login = () => {
               register={register}
               type='password'
               messageError={errors.password?.message}
-              nameSpace='password'
-              classNameInput='h-[40px] outline-0  border-colorInput border my-[10px]  pl-[8px] '
-              placeholder='Password'
+              nameSpace='Mật khẩu'
+              classNameInput='h-[40px] outline-0  border-colorInput border my-[5px]  pl-[8px] '
+              placeholder='Mật khẩu'
             />
 
             <Button
-              className='h-[50px] w-full flex items-center text-center justify-center  bg-orange text-white border mt-[20px] '
+              className='h-[50px] w-full rounded-md flex items-center text-center justify-center  bg-orange text-white border mt-[20px] '
               type='submit'
               isLoading={isLoading}
               disabled={isLoading}

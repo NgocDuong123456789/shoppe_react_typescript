@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -67,13 +68,13 @@ const Register = () => {
         <meta name='Đăng Ký' content='đây là trang đăng ký' />
       </Helmet>
       <img
-        src='https://torog.vn/upload/image/1669190563439-%C4%91%C4%83ng%20k%C3%BD%20b%C3%A1n%20tr%C3%AAn%20shopee%20food.jpg'
-        alt='ảnh trang chủ'
+        src='../../../src/assets/shoppe.webp'
+        alt='image-register'
         className='w-full  h-full object-cover'
       />
       <div className=' lg:right-[200px] lg:top-[50%] lg:translate-y-001 lg:absolute  mt-[20px]'>
         <form
-          className='bg-white w-full  lg:w-[400px] px-[24px] pb-[36px] lg:pt-[36px]'
+          className='bg-white w-full  lg:w-[400px] px-[24px] pb-[36px] lg:pt-[36px] rounded-lg'
           onSubmit={handleSubmit(onSubmit)}
         >
           <h2 className='text-[25px] font-bold mb-[20px] w-full text-center'>Đăng Ký</h2>
@@ -85,7 +86,7 @@ const Register = () => {
             placeholder='Email'
             type='email'
             className='flex flex-col h-[100px] '
-            classNameInput='h-[40px] outline-0  border-colorInput border my-[10px]  pl-[8px] '
+            classNameInput='h-[40px] outline-0  border-colorInput border  pl-[8px] my-[7px]'
             messageError={errors.email?.message}
           />
           <Input
@@ -94,22 +95,22 @@ const Register = () => {
             register={register}
             type='password'
             messageError={errors.password?.message}
-            nameSpace='password'
-            classNameInput='h-[40px] outline-0  border-colorInput border my-[10px]  pl-[8px] '
+            nameSpace='Mật khẩu'
+            classNameInput='h-[40px] outline-0  border-colorInput border  pl-[8px]   my-[7px]'
             placeholder='Password'
           />
           <Input
             name='confirm_password'
             type='password'
-            nameSpace='Confirm Password'
+            nameSpace='Xác nhận mật khẩu'
             register={register}
-            classNameInput='h-[40px] outline-0  border-colorInput border my-[10px]  pl-[8px] '
+            classNameInput='h-[40px] outline-0  border-colorInput border my-[7px]  pl-[8px] '
             className='flex flex-col h-[100px] relative'
             messageError={errors.confirm_password?.message}
             placeholder='nhập lại password'
           />
           <Button
-            className='h-[50px] w-full flex items-center text-center justify-center  bg-orange text-white border mt-[20px] '
+            className='h-[50px] rounded-md w-full flex items-center text-center justify-center  bg-orange text-white border mt-[20px] '
             type='submit'
             isLoading={isLoading}
             disabled={isLoading}

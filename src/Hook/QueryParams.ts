@@ -9,7 +9,7 @@ export const QueryParams = () => {
   const QueryParams: QueryConfigs = omitBy(
     {
       page: queryParam?.page ?? '1',
-      limit: queryParam?.limit ?? '2',
+      limit: queryParam?.limit ?? '10',
       order: queryParam?.order,
       sort_by: queryParam?.sort_by ?? 'sold',
       category: queryParam?.category,

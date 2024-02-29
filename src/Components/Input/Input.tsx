@@ -42,7 +42,7 @@ export const Input: React.FC<InputPropsType> = ({
             viewBox='0 0 24 24'
             strokeWidth='1.5'
             stroke='currentColor'
-            className='w-6 h-6 absolute right-[8px] top-[52%] translate-y-001 '
+            className='w-6 h-6 absolute right-[8px] top-[49%] translate-y-001 cursor-pointer '
           >
             <path
               strokeLinecap='round'
@@ -60,7 +60,7 @@ export const Input: React.FC<InputPropsType> = ({
             viewBox='0 0 24 24'
             strokeWidth='1.5'
             stroke='currentColor'
-            className='w-6 h-6 absolute right-[8px] top-[52%] translate-y-001 '
+            className='w-6 h-6 absolute right-[8px] top-[49%] translate-y-001 cursor-pointer '
           >
             <path
               strokeLinecap='round'
@@ -76,7 +76,7 @@ export const Input: React.FC<InputPropsType> = ({
             viewBox='0 0 24 24'
             strokeWidth='1.5'
             stroke='currentColor'
-            className='w-0 h-0 absolute right-[8px] top-[52%] translate-y-001 '
+            className='w-0 h-0 absolute right-[8px] top-[49%] translate-y-001 cursor-pointer '
           >
             <path
               strokeLinecap='round'
@@ -87,7 +87,7 @@ export const Input: React.FC<InputPropsType> = ({
           </svg>
         )}
 
-        <small className='text-orange '>{messageError}</small>
+        <small className='text-orange mt-[-3px] text-[15px] '>{messageError}</small>
       </div>
     </>
   )
