@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
@@ -68,7 +69,7 @@ const Register = () => {
         <meta name='Đăng Ký' content='đây là trang đăng ký' />
       </Helmet>
       <img
-        src='../../../src/assets/shoppe.webp'
+        src='https://logodix.com/logo/2015079.png'
         alt='image-register'
         className='w-full  h-full object-cover'
       />

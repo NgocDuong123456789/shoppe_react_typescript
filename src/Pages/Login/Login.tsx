@@ -68,7 +68,7 @@ const Login = () => {
           <meta name='Đăng nhập' content='đây là page đăng nhập' />
         </Helmet>
         <img
-          src='../../../src/assets/shoppe.webp'
+          src='https://logodix.com/logo/2015079.png'
           alt='ảnh trang chủ'
           className='w-full h-full object-cover'
         />
